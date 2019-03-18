@@ -19,9 +19,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -263,92 +260,6 @@ $(document).ready(function () {
 
 
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -356,16 +267,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -407,14 +308,48 @@ div.tocify {
 </div>
 
 
-<div id="bio" class="section level1">
-<h1>Bio</h1>
+<p><meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></p>
+<p><br/> <br/> <br/></p>
+<div id="home" class="section level4">
+<h4><b>Home:</b> <br/></h4>
+<blockquote>
+<font size="3">
+<p>
+I created this website thanks to GitHubPages in order to share some of my work in terms of data analysis and datavisualization.
+</p>
+</font>
+</blockquote>
+</div>
+<div id="who-am-i" class="section level4">
+<h4><b>Who am I:</b> <br/></h4>
+<blockquote>
+<font size="3">
+<p>
+After a Master’s degree in Economic Analysis @ the University of Cergy-Pontoise (Paris-Seine) in partnership with ESSEC business school, I have completed my education background with a Master’s in Statistics @ the University of Paris II Panthéon Assas. During this year, I was also working as an intern @ AXA Direct France where I got the opportunity to stay after my studies. In January 2019, I decided to move out from France. I quit my job in AXA to start a new adventure in Australia. I am currently working as a Data Analyst @ JCDecaux in Sydney.
+</p>
+</font>
+</blockquote>
+</div>
+<div id="previous-experiences" class="section level4">
+<h4><b>Previous experiences:</b> <br/></h4>
+<div class="jumbotron">
+<ul>
+<li>Data Analyst @ JCDecaux Mar. 2019 - Today</li>
+<li>Data Analyst @ Axa Direct France Sep. 2015 - Jan. 2019</li>
+<li>Speakers in Econometrics @ Université Paris-Descartes France Jan. 2018 - May. 2018 (~20 hours)</li>
+</ul>
+<p>
+<a href="https://www.google.fr" class="btn btn-primary btn-danger">Learn more on LinkedIn</a>
+</p>
+</div>
+</div>
+<div id="follow-me" class="section level4">
+<h4><b>Follow me:</b> <br/></h4>
+<p><a href="https://www.google.fr"><img src="https://cdn1.iconfinder.com/data/icons/3in1-social-media-piconic/512/696418-twitter-512.png" alt="Twitter" style="width:64px;height:64px;"></a> <a href="https://www.google.fr"><img src="https://cdn1.iconfinder.com/data/icons/3in1-social-media-piconic/512/696432-linkedin-512.png" alt="LinkedIn" style="width:64px;height:64px;"></a> <a href="https://www.google.fr"><img src="https://cdn1.iconfinder.com/data/icons/3in1-social-media-piconic/512/696433-instagram-512.png" alt="Instagram" style="width:64px;height:64px;"></a></p>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
