@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="site_libs/proj4js-2.3.15/proj4.js"></script>
+<link href="site_libs/highcharts-7.0.1/css/motion.css" rel="stylesheet" />
+<link href="site_libs/highcharts-7.0.1/css/htmlwdgtgrid.css" rel="stylesheet" />
+<script src="site_libs/highcharts-7.0.1/highcharts.js"></script>
+<script src="site_libs/highcharts-7.0.1/highcharts-3d.js"></script>
+<script src="site_libs/highcharts-7.0.1/highcharts-more.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/stock.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/map.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/annotations.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/boost.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/data.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/drag-panes.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/drilldown.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/item-series.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/offline-exporting.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/overlapping-datalabels.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/exporting.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/export-data.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/funnel.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/heatmap.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/treemap.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/sankey.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/solid-gauge.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/streamgraph.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/sunburst.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/vector.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/wordcloud.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/xrange.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/tilemap.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/venn.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/gantt.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/timeline.js"></script>
+<script src="site_libs/highcharts-7.0.1/modules/parallel-coordinates.js"></script>
+<script src="site_libs/highcharts-7.0.1/plugins/grouped-categories.js"></script>
+<script src="site_libs/highcharts-7.0.1/plugins/motion.js"></script>
+<script src="site_libs/highcharts-7.0.1/plugins/multicolor_series.js"></script>
+<script src="site_libs/highcharts-7.0.1/custom/reset.js"></script>
+<script src="site_libs/highcharts-7.0.1/custom/symbols-extra.js"></script>
+<script src="site_libs/highcharts-7.0.1/custom/text-symbols.js"></script>
+<script src="site_libs/highchart-binding-0.7.0/highchart.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="dataanalytics.html">Data Analytics</a>
+</li>
+<li>
+  <a href="articles.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<p><meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></p>
+<div class="alert alert-dismissible alert-danger">
+<h4>
+</h4>
+</div>
+<div id="wage-inequalities-across-countries" class="section level1">
+<h1><b>Wage inequalities across countries</b></h1>
+<div id="introduction" class="section level2">
+<h2><b><i>Introduction</i></b></h2>
+<p>
+This article deals with wage inequalities between women and men across countries. This subject has been debated for many years and most of the studies agreed on an imbalance between the wage of women and men. Over the past years, many countries led political actions to reduce this gap. In this article, we aim to provide additional descriptive statistics on the subject without discussing efficiency of these political actions.
+</p>
+</div>
+<div id="oecd-analysis" class="section level2">
+<h2><b><i>OECD Analysis</i></b></h2>
+<p>
+<p>Recently, OECD has published an analysis on the imbalance between the wage of women and men across OECD countries. The wage gap (in %) that they define as <i>the difference between median earnings of men and women relative to median earnings of men</i> is used to highlight inequalities. The study shows huge disparities between countries. In some countries the wage inequality is resonably low whereas in some others it is very high. For instance, in Korea in 2017 the median earnings of women was 34.6% below the one of men. In contrast, in 2014, the imbalance was only of 3.4% in Luxembourg. Over all OECD countries, this rate was established at 13.8% in 2016.</p>
+<p>All the figures are available below on the OECD’s chart analysis:</p>
+<p><img src="/Users/edrev/Desktop/image.png" alt= "OECD"></p>
+<p>What bears emphasizing is that this approach compare the indicators according to the last available value for each country. Thus, one might wonder whether it is relevant to compare countries thanks to rates from different years. With this approach, comparing Mexico (2017: 11.1%) and Cyprus (2014: 13.4%) might lead you to conclure that inequalities are lower in Mexico whereas that in this country the inequalities gap was established at 18.3% in 2014. (nota bene: varier to compare)</p>
+<p>We understand that countries do not communicate every year the inequalities gap to the OECD for different reasons and, in our analysis, we don’t aim to challenge the OECD’s analysis. However, we will try to give further insights assuming basic hypothesis. These hypothesis will be developped in the next section and they may be challenged. Nevertheless, the main purpose of this article is to show how simple data anlysis and visual analysis may allow you to go further into any subject.</p>
+</div>
+<div id="framework" class="section level2">
+<h2><b><i>Framework</i></b></h2>
+<div id="data-and-data-wrangling" class="section level3">
+<h3><b><i>Data and data wrangling</i></b></h3>
+<p>In our analysis, we will use the dataset available on the OECD’s website. According to the OECD’s definition data <i>refer to full-time employees on the one hand and to self-employed on the other</i>. We will only focus on employees and we will reshape the dataset for the purpose of our study. This will lead use to a datasert with the inequalities gap (in %) per country and per year.</p>
+</p>
+</div>
+<div id="hypothesis-and-predictions" class="section level3">
+<h3><b><i>Hypothesis and predictions</i></b></h3>
+<p>For the sake of clarity, we decide to take very simple hypothesis. Thus, in order to predict the missing value we will assume there exists a linear relationship of inequalities gap over time. Furthermore, diving into the data, we can figure out that some countries have very few data. This is the case of Croatia for instance where we have only one value over the last four decades. We will not treat these value as far as our hypothesis on a linear relationshoip will lead us to assume there is no variation of inequalities gap for these countries that might be considered as unrealistic.</p>
+<p>Also, we will keep only countries that have a significant linear relationship. In fact, most of them have a significant linear relation as far as they have enough data.</p>
+</div>
+</div>
+<div id="wage-gap" class="section level2">
+<h2><b><i>Wage gap</i></b></h2>
+<p>Previously, we assume there exists a linear relationship of inegalities gap over time. On one hand this allow us to predict the missing value and on another hand it allows us to draw inequalities over time for each countries. This is what the following grahic shows us:</p>
+<div id="htmlwidget-5d9bdb64dc287fb7db58" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5d9bdb64dc287fb7db58">{"x":{"hc_opts":{"title":{"text":"<b>Wage inequalities in OECD<\/b>","margin":20,"align":"left","style":{"color":"#011f4b","useHTML":true}},"yAxis":{"title":{"text":null},"min":0,"max":50},"credits":{"enabled":false},"exporting":{"enabled":true},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"chart":{"type":"line"},"subtitle":{"text":"<i>Please select the countries you want to compare<\/i>","align":"left","style":{"color":"#011f4b","useHTML":true}},"tooltip":{"crosshairs":true,"backgroundColor":"#ffdfba","shared":true,"borderWidth":5},"xAxis":{"categories":[2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017]},"series":[{"data":[22.801817823,24.48922362,21.136921977,22.430792158,22.032085753,21.855130427,21.634276366,20.917320274,19.355965917,19.188862682,18.550554118,18.185056843,18.053211411,17.728884245,17.04325299,15.670899643,15.904669615575],"name":"Austria","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[13.186813187,11.604714415,15.205183585,11.832061069,11.511092507,10.253267974,9.8736176935,8.9157536834,7.4804614812,7.0437956204,5.8381088825,6.4111498258,5.9128630705,3.2989003665,4.672,3.7012987013,2.49194194490747],"name":"Belgium","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[24.324579125,24.013157895,22.502340337,22.717948718,21.25,21.123321123,20.808235294,20.454545455,20.131868132,18.977469671,19.175531915,19.511231281,19.30323498,19.229,18.62745098,18.221153846,18.17322239],"name":"Canada","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[24.046598211607,22.801619433,22.9893227938926,22.012478004,21.9320473761784,21.318132126,20.8747719584642,21.307506053,19.8174965407497,20.053595355,18.7602211230355,19.343526441,17.7029457053213,16.940742841,16.6456702876069,14.762372073,15.5883948698927],"name":"Switzerland","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[19.105008078,19.076590488,19.554572271,21.850217724,16.347569956,18.128654971,16.715542522,16.737517957,16.524216524,16.694715584,16.944444444,15.646258503,14.065934066,17.447916667,15.816326531,15.510718789,14.7524434372499],"name":"Deutschland","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[11.733680880114,10.797075707,9.9218040939,10.182205379,10.167330438,10.172061258,9.8502979507,10.183549034,10.172005061,8.895098479,7.9471972536,6.9998448762,6.7689119452,6.3238656948,5.8360481128,5.7326280384,5.59297556276567],"name":"Denmark","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[21.239091287,20.373202814,20.099255583,20.015151037,18.941694033,19.374794537,21.376904093,21.233952657,19.675672792,18.876999846,18.607617095,18.726074526,20.178432711,19.609079445,18.055981324,16.47225837,18.0541102351],"name":"Finland","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[25.639645899,24.379099435,24.124467087,23.358740969,22.0639582,21.718084024,21.634780707,21.857869108,20.686295954,19.231436918,18.246005203,17.783882784,17.482014388,17.382742571,17.101551481,16.839736933,16.534100525],"name":"Great Britain","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[16.4820408968699,15.7960064314332,15.1099719659962,13.875598298,16.666665691,11.878629486,11.629049359,9.5237715743,9.5871657347,12.172840391,10.714285714,6.8528027344,11.273731296,9.0909090909,6.25,4.4850498339,5.505489449881],"name":"Greece","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[18.3373261960328,17.8500642087878,19.702836294,18.230301742,13.793103448,14.411326861,17.953447971,14.964028777,14.887077375,12.844729883,10.446852551,8.5007533903,12.769827795,15.173428116,14.448940728,10.611735331,10.5411344001119],"name":"Ireland","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[27.974718329,24.207612457,25.325311319,25.013528139,21.924398625,21.955215729,20.40924794,22.058823529,21.13599802,20.391577392,19.659666908,20,20.345901815,20.108141196,20.439189189,21.593332041,18.658514205425],"name":"Israel","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[33.864671438,32.529722589,31.997350116,31.087391594,32.825438887,32.980832783,31.742323097,30.694397853,28.284923928,28.684300928,27.395364926,26.523545706,26.587578507,25.870989997,25.731790334,24.601289447,24.518092661],"name":"Japan","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[40.416140488,41.028512789,40.083154629,39.623548252,39.616632359,39.774144311,38.162064282,39.037441734,38.614682704,39.605857342,36.5642295,36.298529966,36.599634369,36.653176139,37.176281754,36.666666667,34.617382557],"name":"Korea","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[10.742867084,10.681873927,10.211701156,9.7057919803,9.3885160328,9.1624347329,9.8311482592,9.2356687898,8.6687306502,8.0597014925,7.7809798271,6.4066852368,7.0080862534,6.2827225131,7.1246819338,6.13961459901145,5.82130317498036],"name":"Norway","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[17.508444838636,16.9937550314237,16.3351005648197,16.0941718101633,15.5795238675223,15.2559345491389,15.3087622547525,15.3265198264851,14.8914056945566,14.4619814052501,14.3090024183295,14.2503700151542,14.3425040220505,14.2691882385767,14.2325661076905,13.7687342912571,13.3393058809634],"name":"OECD","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[20.96104117435,20.355160932,20.689655172,20.88376561,20.099255583,17.802768166,17.521704815,16.444769568,16.432721259,14.851117649,15.449856429,15.965269161,14.109329757,14.350047529,13.376624885,13.899182143,15.040042332],"name":"Slovak Republic","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[16.591494845,15.857913099,16.005080978,15.320591862,14.444111477,14.589486119,16.363636364,15.389048991,14.917436328,14.321260713,15.934515689,15.135869565,13.420490928,14.3235227198077,14.190718965956,14.0579152121044,13.9251114582527],"name":"Sweden","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[23.582089552,22.091310751,20.575539568,19.635343619,18.975069252,19.246298789,19.843342037,20.050125313,19.78021978,18.810679612,17.788461538,19.086651054,17.906976744,17.451205511,18.882681564,18.142076503,18.172157279],"name":"USA","tooltip":{"valueDecimals":2,"valueSuffix":" %"}}]},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<p>We can figure out that Asian countries remain the bad students in term of sex equality whereas Denmark, Greece and Norway are a step ahead. This visual data give us a good picture of the situation in OECD countries.Furthermore, wage gap is an important indicator to figure out where the inequalities are the lowest. However another perspective might be to look at the reduction of this gap. In fact some countries can have a low gap for a long time and do not take initiatives to reduce and arrive to equality whereas countries with a high gap may intend to lead policies and action to drastically reduce the gap. This will be the object of the next section.</p>
+</div>
+<div id="effective-and-pragmatic-policies" class="section level2">
+<h2><b><i>Effective and pragmatic policies</i></b></h2>
+<p>
+In order to see this, we are going to compare evolution between countries basis on a base 100.
+</p>
+<div id="htmlwidget-175c130f69b4978587df" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-175c130f69b4978587df">{"x":{"hc_opts":{"title":{"text":"<b>Evolution of wage inequalities across countries over time<\/b>","margin":20,"align":"left","style":{"color":"#011f4b","useHTML":true}},"yAxis":{"title":{"text":null},"min":0,"max":120},"credits":{"enabled":false},"exporting":{"enabled":true},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"chart":{"type":"line"},"subtitle":{"text":"<i>Please select the countries you want to compare<\/i>","align":"left","style":{"color":"#011f4b","useHTML":true}},"tooltip":{"crosshairs":true,"backgroundColor":"#ffdfba","shared":true,"borderWidth":5},"xAxis":{"categories":[2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017]},"series":[{"data":[100,107.400312598314,92.6984073860961,98.3728241849834,96.6242512944579,95.8481933179683,94.8796123797537,91.7353188082262,84.8878193276143,84.1549688316708,81.3555930584105,79.7526626348926,79.1744392975102,77.7520651319169,74.7451502432785,68.7265364746178,69.7517616316192],"name":"Austria","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,88.0024176458366,115.30597551795,89.7264631053122,87.29245151018,77.7539488017318,74.8749341746476,67.6111320981588,56.7268328982964,53.4154501206099,44.2723256916645,48.6178861782946,44.8392116173231,25.0166611122706,35.4293333328314,28.068181817794,18.8972264152806],"name":"Belgium","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,98.7197261321577,92.5086523444627,93.3950330702793,87.3601960009246,86.8394105174471,85.5440712337505,84.0900282380528,82.763479805943,78.0176691793018,78.8319165419476,80.2119994789427,79.3569125319861,79.0517274777308,76.5787185228431,74.9084033576264,74.7113538804137],"name":"Canada","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,94.8226407425642,95.6032225081879,91.5409232120609,91.2064450163767,88.6534217372583,86.8096675245655,88.60923223109,82.4128900327534,83.3947287617603,78.0161125409422,80.4418415893151,73.619335049131,70.4496440283303,69.2225575573189,61.3906879596564,64.8257800655077],"name":"Switzerland","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,99.8512558074617,102.353122234571,114.369057761149,85.5669355870345,94.8895436054576,87.4929885072828,87.6080129810244,86.4915442931853,87.3839755306069,88.6911137374082,81.8961103765098,73.6243293306814,91.3264029816968,82.7862854934512,81.186664384932,77.2176770458306],"name":"Deutschland","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,92.0178059836166,84.5583256888747,86.7775890876375,86.6508177773217,86.6911360717115,83.9489163830431,86.7890403535594,86.6906571341933,75.8082529249218,67.7297885872178,59.656001792781,57.6878817002073,53.8949862316229,49.7375731659008,48.8561781845929,47.665993475624],"name":"Denmark","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,95.9231378532188,94.6333122797129,94.2373228992657,89.1831659699764,91.2223327975378,100.64886394685,99.9758057916388,92.6389576942167,88.8785663704653,87.6102317352406,88.1679647822873,95.0061019011241,92.3254162808853,85.0129653854432,77.5563236082625,85.0041557387652],"name":"Finland","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,95.083604239444,94.0904846425391,91.1039920793564,86.0540675441252,84.7050856690928,84.3801852499211,85.2502768333961,80.6808956546736,75.0066400829275,71.163249581819,69.3608751620614,68.1835250645245,67.7963441440428,66.6996398794532,65.6785081952196,64.4864620600898],"name":"Great Britain","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,95.8376849703911,91.6753699407808,84.186165929458,101.12015735967,72.0701371894781,70.5558821978684,57.7827201976466,58.1673458686825,73.8551764746061,65.0058192492094,41.5773918853789,68.4000929650709,55.1564526977146,37.9200612297167,27.211738291171,33.4029595262475],"name":"Greece","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,97.3427860635951,107.446615081007,99.4163573637255,75.2187276408056,78.5901210838352,97.9065747048998,81.6042023631417,81.1845588383587,70.0469073063602,56.9704243645954,46.3576494164079,69.6384394239696,82.746131872174,78.7952429571001,57.8695891514206,57.4845770175176],"name":"Ireland","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,86.5338916814228,90.5292808354982,89.4147631615998,78.3721872268936,78.4823477784229,72.9560444540482,78.8527100418835,75.553926125109,72.8928783202834,70.2765499791281,71.4931237726422,72.7296038362911,71.8796913681697,73.0630741250814,77.1887380135487,66.6977732751028],"name":"Israel","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,96.0579896620463,94.4859310818393,91.798887377116,96.931219152967,97.3900864308749,93.7328541784744,90.6384044185865,83.5233968821593,84.7027291568905,80.8965915294819,78.3221705090503,78.51125488011,76.3952192607716,75.9841724172939,72.6458825742351,72.4002082993427],"name":"Japan","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,101.515167686983,99.1761067361222,98.0389215139547,98.0218098033448,98.4115351707306,94.4228316242387,96.588742177375,95.5427268357431,97.9951496203835,90.4693745085737,89.8119650409901,90.5569753249122,90.6894515320748,91.9837503163818,90.7228305926112,85.6523709068121],"name":"Korea","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,99.4322450745868,95.0556408838838,90.3463842976836,87.393020498065,85.2885422602516,91.513263473604,85.9702416271652,80.6928968069508,75.0237476595405,72.4292664729017,59.6366424968793,65.2347850774172,58.4827352323593,66.3201162044648,57.1506149243487,54.1876123893441],"name":"Norway","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,97.0603339590931,93.2984095124938,91.922337811798,88.982910881627,87.1347209289173,87.4364479303756,87.5378708259912,85.0527036056089,82.6000340894741,81.7262900857633,81.3914093826758,81.9176354852534,81.4988902217562,81.289721839163,78.6405327152389,76.1878396619638],"name":"OECD","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,97.1094935728123,98.7052837686224,99.631337185461,95.8886317517252,84.9326520468133,83.5917675522781,78.453972926323,78.3964933913143,70.8510494563279,73.707485713572,76.1663937788389,67.3121608780843,68.4605664844555,63.8166051663928,66.3095980175278,71.7523629045892],"name":"Slovak Republic","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,95.5785674958572,96.4655754500824,92.3400332828781,87.0573243215205,87.9335241055551,98.6266549028362,92.7526370273841,89.9101405109107,86.3168801050849,96.0402654363721,91.226677923848,80.8877744493552,86.3305136373785,85.5300809151174,84.7296481928562,83.9292154705951],"name":"Sweden","tooltip":{"valueDecimals":2,"valueSuffix":" %"}},{"data":[100,93.6783430589866,87.2507057639215,83.2637988915394,80.4639012592958,81.6140518275986,84.145817499523,85.0226832901648,83.8781471692038,79.766805950428,75.4320837378525,80.9370645968956,75.9346482189968,74.0019474208127,80.0721306835957,76.9315902350196,77.0591479560335],"name":"USA","tooltip":{"valueDecimals":2,"valueSuffix":" %"}}]},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="who-are-the-bad-students" class="section level2">
+<h2><b><i>Who are the bad students</i></b></h2>
+</div>
+<div id="conclusion" class="section level2">
+<h2><b><i>Conclusion</i></b></h2>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
